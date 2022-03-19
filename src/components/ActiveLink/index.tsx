@@ -16,8 +16,8 @@ export function ActiveLink({ children, activeClassName, ...rest }: ActiveLinkPro
 
     console.log(className, asPath)
   return (
-    <Link {...rest}> { /* Repassando as propriedades que o link ja recebe, exemplo: href*/}
-      {cloneElement(children, { // clonando elemento children e adicionando a propriedade className
+    <Link {...rest}>
+      {cloneElement(children, { 
         className
       })}
     </Link>
