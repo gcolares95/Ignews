@@ -1,5 +1,6 @@
 // Componente que vai gerar uma checkout session
 import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { api } from '../../services/api';
 import { getStripeJs } from '../../services/stripe-js';
 
@@ -11,6 +12,7 @@ interface subscribeButtonProps {
 
 export function SubscribeButton({ priceId }: subscribeButtonProps) {
   const { data: session } = useSession();
+  const router = useRouter();
 
   async function handleSubscribe() {
     if (!session) {
@@ -18,6 +20,11 @@ export function SubscribeButton({ priceId }: subscribeButtonProps) {
       return; // parando o código por aqui
     }
 
+    if (session.activeSubscription) {
+      router.push('/posts')
+
+      return;
+    }
     // Requisição para a rota subscribe, e com isso criar uma checkout session
     try {
       const response = await api.post('/subscribe');

@@ -37,15 +37,31 @@ export default function Post({ post }: PostProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const session = getSession({ req }) // passando req como parâmetro, que é da onde ele vai buscar os cookies para saber se o usuário está logado ou não
+  const session = await getSession({ req });
   const { slug } = params;
 
-  //  if (!session) {
-  //  }
+
+   if (!session.activeSubscription) {
+     return {
+       redirect: {
+         destination: '/',
+         permanent: false,
+       } 
+     }
+   }
 
   const prismic = getPrismicClient(req)
 
   const response = await prismic.getByUID<any>('publication', String(slug), {});
+
+  if (!response) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false // redirect feita por uma "motivacao", no caso nao ter uma subscription
+      }
+    }
+  }
 
   const post = {
     slug,
