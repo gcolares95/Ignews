@@ -10,4 +10,7 @@ Projeto feito atráves do curso da Rocketseat com o objetivo de estudar as segui
 - FaunaDB (Banco de dados)
 - Prismic (CMS)
 
-<img src="./public/images/" style="height: 300px; width: 700px" />
+<img src="./public/images-ignews/imagem1.png" style="height: 350px; width: 700px" />
+<img src="./public/images-ignews/imagem2.png" style="height: 350px; width: 700px" />
+<img src="./public/images-ignews/imagem3.png" style="height: 350px; width: 700px" />
+<img src="./public/images-ignews/imagem4.png" style="height: 350px; width: 700px" />
