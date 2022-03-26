@@ -1,6 +1,6 @@
 # Ignews
 
-Projeto feito atráves do curso da Rocketseat com o objetivo de estudar as seguintes tecnologias: 
+Projeto feito atráves de React com o objetivo de estudar as seguintes tecnologias: 
 
 - Reactjs
 - Nextjs
